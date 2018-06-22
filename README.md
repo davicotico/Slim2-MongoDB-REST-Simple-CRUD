@@ -61,12 +61,12 @@ Substituir {_id} por o id do documento
 
 **Reques Body (cidades)**
 ```
-{"nome": "Niteroi"}
+{"nome": "Niteroi", ...}
 ```
 
 **Reques Body (estados)**
 ```
-{"nome": "Acre"}
+{"nome": "Acre", ...}
 ```
 
 **Response**
@@ -93,7 +93,7 @@ Retorna a quantidade de documentos excluidos(deletedCount).
 {"deletedCount": "1"}
 ```
 
-#### Para POST, PUT
+# Para POST, PUT
 
 *Header request*
 ```
