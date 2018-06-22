@@ -9,7 +9,7 @@
 ```
 GET api/{collection}/?limit={int}&orderby[{field1}]={asc|desc}&orderby[{field2}]=[asc|desc]&field3=YYY&field4=ZZZ
 ```
-Substituir {collection} por cidades ou estados.
+Substituir {collection} por *cidades* ou *estados*
 
 Podem ser pasados na URL os seguintes parâmetros:
 * limit: O limite de objetos
@@ -24,7 +24,7 @@ GET api/cidades/?limit=15&orderby[criacao]=asc&orderby[nome]=desc&estadoId=1
 
 **Response**
 ```
-[{"id": "1", "nome": "Rio de Janeiro", "abreviacao": "RJ", ...}, {...}, {...}, {...}, ...]
+[{"id": "2", "nome": "Niteroi", "estadoId": "1", "criacao":"2018-06-20 22:23:10", "alteracao": "2018-06-20 22:23:10"}, {...}, {...}, {...}, ...]
 ```
 
 ## Inserir
@@ -33,10 +33,16 @@ POST api/{collection}
 ```
 Substituir {collection} por *cidades* ou *estados*
 
-**Request Body**
+**Request Body (cidades)**
 ```
- {"field1": "zz", "field2": "yy"}
+ {"nome": "Niteroi", "estadoId": "1"}
 ```
+
+**Request Body (estados)**
+```
+ {"nome": "Sao Paulo", "abreviacao": "SP"}
+```
+
 **Response**
 
 Retorna o id do novo documento e a quantidade de documentos inseridos (Sendo que a operação permite uma inserção por request o valor insertedCount vai tomar o valor de 1 se for inserido corretamente ou 0 em caso contrario).
@@ -51,10 +57,18 @@ PUT api/{collection}/{_id}
 
 Substituir {collection} por *cidades* ou *estados*
 
-**Reques Body**
+Substituir {_id} por o id do documento
+
+**Reques Body (cidades)**
 ```
-{"field1": "yyy", "field2": "zzz"}
+{"nome": "Niteroi"}
 ```
+
+**Reques Body (estados)**
+```
+{"nome": "Acre"}
+```
+
 **Response**
 
 Retorna a quantidade de documentos que coincidiram com o criterio da busca(matchedCount) e a quantidade de documentos alterados (modifiedCount).
@@ -68,6 +82,8 @@ Retorna a quantidade de documentos que coincidiram com o criterio da busca(match
 DELETE api/{collection}/{_id}
 ```
 Substituir {collection} por *cidades* ou *estados*
+
+Substituir {_id} por o id do documento
 
 **Response**
 
