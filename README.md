@@ -16,15 +16,15 @@ Podem ser pasados na URL os seguintes parâmetros:
 * orderby: Permite a ordenação por mais de um campo de forma ascendente(asc) ou descendente(desc).
 * O resto dos parâmetros são considerados filtros (campo e valor).
 
-**Response**
-```
-[{"id": "1", "nome": "Rio de Janeiro", "abreviacao": "RJ", ...}, {...}, {...}, {...}, ...]
-```
-
 **Exemplo:**
 
 ```
 GET api/cidades/?limit=15&orderby[criacao]=asc&orderby[nome]=desc&estadoId=1
+```
+
+**Response**
+```
+[{"id": "1", "nome": "Rio de Janeiro", "abreviacao": "RJ", ...}, {...}, {...}, {...}, ...]
 ```
 
 ## Inserir
@@ -67,7 +67,7 @@ Retorna a quantidade de documentos que coincidiram com o criterio da busca(match
 ```
 DELETE api/{collection}/{_id}
 ```
-Substituir {collection} por cidades ou estados
+Substituir {collection} por *cidades* ou *estados*
 
 **Response**
 
