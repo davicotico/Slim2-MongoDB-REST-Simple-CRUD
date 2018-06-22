@@ -1,23 +1,24 @@
-# Slim2-MongoDB-REST-Simple-CRUD
-Slim Framework 2  MongoDB REST Service Simple CRUD
-
-## Detalhes
+### Detalhes
 * Servidor Apache
 * PHP >= 5.6
 * Slim Framework 2.6.3
 
-## EndPoints
+# EndPoints
 
-### Listagens
+## Listagens
 ```
-GET api/{collection}/?limit={int}&orderby[{field1}]={asc|desc}&orderby[field2]=[asc|desc]&field3=YYY&field4=ZZZ
+GET api/{collection}/?limit={int}&orderby[{field1}]={asc|desc}&orderby[{field2}]=[asc|desc]&field3=YYY&field4=ZZZ
 ```
-**Request Body**
-(No body)
+Substituir {collection} por cidades ou estados.
+
+Podem ser pasados na URL os seguintes parâmetros:
+* limit: O limite de objetos
+* orderby: Permite a ordenação por mais de um campo de forma ascendente(asc) ou descendente(desc).
+* O resto dos parâmetros são considerados filtros (campo e valor).
 
 **Response**
 ```
-[{"field1": "value1"}, {}, {}, {}, ...]
+[{"id": "1", "nome": "Rio de Janeiro", "abreviacao": "RJ", ...}, {...}, {...}, {...}, ...]
 ```
 
 **Exemplo:**
@@ -26,37 +27,54 @@ GET api/{collection}/?limit={int}&orderby[{field1}]={asc|desc}&orderby[field2]=[
 GET api/cidades/?limit=15&orderby[criacao]=asc&orderby[nome]=desc&estadoId=1
 ```
 
-### Inserir
+## Inserir
 ```
 POST api/{collection}
 ```
-Substituir {collection} por cidades ou estados
+Substituir {collection} por *cidades* ou *estados*
 
 **Request Body**
 ```
  {"field1": "zz", "field2": "yy"}
 ```
+**Response**
 
-### Alterar
+Retorna o id do novo documento e a quantidade de documentos inseridos (Sendo que a operação permite uma inserção por request o valor insertedCount vai tomar o valor de 1 se for inserido corretamente ou 0 em caso contrario).
+```
+ {"id": "2", "insertedCount": "1"}
+```
+
+## Alterar
 ```
 PUT api/{collection}/{_id}
 ```
-Substituir {collection} por cidades ou estados
+
+Substituir {collection} por *cidades* ou *estados*
 
 **Reques Body**
 ```
 {"field1": "yyy", "field2": "zzz"}
 ```
+**Response**
 
-### Excluir
+Retorna a quantidade de documentos que coincidiram com o criterio da busca(matchedCount) e a quantidade de documentos alterados (modifiedCount).
+
+```
+{"matchedCount": "1", "modifiedCount": "0"}
+```
+
+## Excluir
 ```
 DELETE api/{collection}/{_id}
 ```
 Substituir {collection} por cidades ou estados
 
-**Reques Body**
+**Response**
+
+Retorna a quantidade de documentos excluidos(deletedCount).
+
 ```
-No body
+{"deletedCount": "1"}
 ```
 
 #### Para POST, PUT
