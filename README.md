@@ -1,7 +1,10 @@
-### Detalhes
+# Detalhes
 * Servidor Apache
 * PHP >= 5.6
 * Slim Framework 2.6.3
+
+### Banco de dados
+O nome do banco de dados é *db_davidt*. Para alterar o nome do banco de dados editar o arquivo **models/config.php**
 
 # EndPoints
 
