@@ -10,7 +10,7 @@ O nome do banco de dados é *db_davidt*. Para alterar o nome do banco de dados e
 
 ## Listagens
 ```
-GET api/{collection}/?limit={int}&orderby[{field1}]={asc|desc}&orderby[{field2}]=[asc|desc]&field3=YYY&field4=ZZZ
+GET api/{collection}?limit={int}&orderby[{field1}]={asc|desc}&orderby[{field2}]=[asc|desc]&field3=YYY&field4=ZZZ
 ```
 Substituir {collection} por *cidades* ou *estados*
 
@@ -22,7 +22,7 @@ Podem ser pasados na URL os seguintes parâmetros:
 **Exemplo:**
 
 ```
-GET api/cidades/?limit=15&orderby[criacao]=asc&orderby[nome]=desc&estadoId=1
+GET api/cidades?limit=15&orderby[criacao]=asc&orderby[nome]=desc&estadoId=1
 ```
 
 **Response**
